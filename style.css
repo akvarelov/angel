@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0a0a0a;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(139, 0, 0, 0.05) 0%, transparent 20%);
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 1200px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Стили для экрана приветствия */
+.welcome-content {
+    text-align: center;
+    padding: 40px;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    background-color: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+#welcome-text {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #ff0000;
+    font-family: 'Russo One', sans-serif;
+}
+
+/* Glitch эффект */
+.glitch-text {
+    position: relative;
+    animation: glitch 5s infinite;
+}
+
+@keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    1% { transform: translate(-2px, 2px); }
+    2% { transform: translate(-2px, -2px); }
+    3% { transform: translate(2px, 2px); }
+    4% { transform: translate(2px, -2px); }
+    5% { transform: translate(0); }
+}
+
+/* Стили для экрана меню */
+.menu-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.specialty-title {
+    font-size: 2.2rem;
+    color: #ff0000;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.specialty-title::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    top: 0;
+    color: #00ff00;
+    overflow: hidden;
+    clip-path: inset(0 0 0 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip-path: inset(40% 0 61% 0); }
+    5% { clip-path: inset(92% 0 1% 0); }
+    10% { clip-path: inset(43% 0 1% 0); }
+    15% { clip-path: inset(25% 0 58% 0); }
+    20% { clip-path: inset(54% 0 7% 0); }
+    25% { clip-path: inset(58% 0 43% 0); }
+    30% { clip-path: inset(98% 0 1% 0); }
+    35% { clip-path: inset(25% 0 73% 0); }
+    40% { clip-path: inset(51% 0 46% 0); }
+    45% { clip-path: inset(69% 0 9% 0); }
+    50% { clip-path: inset(84% 0 6% 0); }
+    55% { clip-path: inset(84% 0 14% 0); }
+    60% { clip-path: inset(84% 0 6% 0); }
+    65% { clip-path: inset(88% 0 2% 0); }
+    70% { clip-path: inset(20% 0 58% 0); }
+    75% { clip-path: inset(51% 0 32% 0); }
+    80% { clip-path: inset(35% 0 19% 0); }
+    85% { clip-path: inset(74% 0 6% 0); }
+    90% { clip-path: inset(22% 0 60% 0); }
+    95% { clip-path: inset(86% 0 4% 0); }
+    100% { clip-path: inset(60% 0 40% 0); }
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.btn {
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 220px;
+}
+
+.btn i {
+    margin-right: 10px;
+}
+
+#price-btn {
+    background: linear-gradient(45deg, #8b0000, #ff0000);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+#project-btn {
+    background: linear-gradient(45deg, #004d4d, #008080);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 128, 128, 0.4);
+}
+
+#contact-btn {
+    background: linear-gradient(45deg, #4d004d, #800080);
+    color: white;
+    box-shadow: 0 5px 15px rgba(128, 0, 128, 0.4);
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #333333, #666666);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.6);
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Стили для экрана прайса */
+.price-content {
+    background-color: rgba(20, 0, 0, 0.9);
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.5);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.price-title {
+    font-size: 3rem;
+    color: #ff0000;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px #ff0000;
+    font-family: 'Russo One', sans-serif;
+}
+
+.price-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.price-item {
+    background-color: rgba(30, 0, 0, 0.7);
+    border-left: 4px solid #ff0000;
+    padding: 20px;
+    border-radius: 0 5px 5px 0;
+    transition: transform 0.3s ease;
+}
+
+.price-item:hover {
+    transform: translateX(10px);
+}
+
+.price-item h3 {
+    color: #ff4500;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-item ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.price-item li {
+    margin-bottom: 10px;
+    color: #ddd;
+    position: relative;
+    padding-left: 20px;
+}
+
+.price-item li::before {
+    content: '➜';
+    color: #ff0000;
+    position: absolute;
+    left: 0;
+}
+
+.days {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.stars {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.contact-link {
+    color: #1e90ff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.payment-method {
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ff0000;
+    font-weight: bold;
+}
+
+.price-item.closing {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff69b4;
+    border-left-color: #ff69b4;
+}
+
+.price-item.closing i {
+    color: #ff1493;
+    margin-right: 10px;
+}
+
+/* Хакерская анимация на фоне */
+.hacker-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.code-line {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg, transparent, #00ff00, transparent);
+    opacity: 0;
+    animation: fall 10s linear infinite;
+}
+
+.code-line:nth-child(1) {
+    top: 10%;
+    animation-delay: 0s;
+}
+
+.code-line:nth-child(2) {
+    top: 30%;
+    animation-delay: 2s;
+}
+
+.code-line:nth-child(3) {
+    top: 50%;
+    animation-delay: 4s;
+}
+
+.code-line:nth-child(4) {
+    top: 70%;
+    animation-delay: 6s;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    #welcome-text {
+        font-size: 1.8rem;
+    }
+    
+    .specialty-title {
+        font-size: 1.6rem;
+    }
+    
+    .btn {
+        min-width: 100%;
+        padding: 15px 20px;
+        font-size: 1.1rem;
+    }
+    
+    .buttons-container {
+        gap: 15px;
+    }
+    
+    .price-title {
+        font-size: 2.2rem;
+    }
+    
+    .price-content {
+        padding: 20px;
+    }
+    
+    .price-item h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #welcome-text {
+        font-size: 1.4rem;
+    }
+    
+    .specialty-title {
+        font-size: 1.3rem;
+    }
+    
+    .price-title {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-content, .menu-content, .price-content {
+        padding: 20px;
+    }
+}
