@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Экран приветствия -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <h1 id="welcome-text" class="glitch-text">Здравствуйте. Я Angel, добро пожаловать на сайт.</h1>
+            </div>
+        </div>
+
+        <!-- Экран меню -->
+        <div id="menu-screen" class="screen">
+            <div class="menu-content">
+                <h2 class="specialty-title glitch-text" data-text="Мои специальности: secret">Мои специальности: secret</h2>
+                <div class="buttons-container">
+                    <button id="price-btn" class="btn pulse">
+                        <i class="fas fa-tags"></i> Прайс
+                    </button>
+                    <button id="project-btn" class="btn pulse">
+                        <i class="fab fa-telegram"></i> Проект
+                    </button>
+                    <button id="contact-btn" class="btn pulse">
+                        <i class="fas fa-paper-plane"></i> Связи со мной
+                    </button>
+                </div>
+                <button id="back-btn" class="btn back-btn">
+                    <i class="fas fa-arrow-left"></i> Назад
+                </button>
+            </div>
+        </div>
+
+        <!-- Экран прайса -->
+        <div id="price-screen" class="screen">
+            <div class="price-content">
+                <h2 class="price-title">PRICE</h2>
+                <div class="price-list">
+                    <div class="price-item">
+                        <h3><i class="fas fa-shield-alt"></i> Навсегда прайс на деф от клана</h3>
+                        <ul>
+                            <li><span class="days">10 days</span> — <span class="stars">150 stars</span></li>
+                            <li><span class="days">15 days</span> — <span class="stars">200 stars</span></li>
+                            <li><span class="days">30 days</span> — <span class="stars">300 stars</span></li>
+                            <li><span class="days">ɴᴀᴠsᴇɢᴅᴀ</span> - <span class="stars">none</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="price-item">
+                        <h3><i class="fas fa-shopping-cart"></i> За покупкой:</h3>
+                        <p class="contact-link">@angel_angelskiy</p>
+                    </div>
+
+                    <div class="price-item">
+                        <h3><i class="fas fa-star"></i> В деф навсегда входит:</h3>
+                        <ul>
+                            <li>Защита тебя и твоих знакомых от кибер угроз</li>
+                            <li>Снос бесплатный и осинт, и деф от моих кланов</li>
+                            <li>Защита от свата</li>
+                            <li>Пробив, заход в кф для решения ситуации</li>
+                            <li>Деф друзей и родных</li>
+                            <li>Рес вашего аккаунта который снесли или вашего знакомого</li>
+                            <li>Защита от фишинг ссылок, защита от взлома, и т.д</li>
+                            <li>Если ваш аккаунт украли и вы приобрели деф навсегда то помогу вернуть (зависит от поддержки)</li>
+                        </ul>
+                    </div>
+
+                    <div class="price-item">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Важно:</h3>
+                        <p>Перед тем как просить меня дефать собирайте доказательства что вы правы в той или иной ситуации если вы не правы то я не буду дефать вас! Могу зайти в кф и решить вопрос.</p>
+                        <p>Если есть вопросы пишите в лс.</p>
+                    </div>
+
+                    <div class="price-item">
+                        <h3><i class="fas fa-link"></i> Связь со мной:</h3>
+                        <p class="contact-link">@angel_angelskiy</p>
+                    </div>
+
+                    <div class="price-item">
+                        <h3><i class="fas fa-money-check-alt"></i> Оплата:</h3>
+                        <div class="payment-methods">
+                            <span class="payment-method">NFT</span>
+                            <span class="payment-method">Звезды</span>
+                            <span class="payment-method">Рубли</span>
+                            <span class="payment-method">TON</span>
+                            <span class="payment-method">$</span>
+                        </div>
+                    </div>
+
+                    <div class="price-item closing">
+                        <p><i class="fas fa-heart"></i> Всех обнял спасибо за понимание ❤️</p>
+                    </div>
+                </div>
+                <button id="price-back-btn" class="btn back-btn">
+                    <i class="fas fa-arrow-left"></i> Назад
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hacker-animation">
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
